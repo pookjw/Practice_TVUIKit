@@ -1,11 +1,11 @@
 //
-//  MediaContentCollectionViewController.mm
+//  MonogramCollectionViewController.m
 //  Practice_TVUIKit
 //
-//  Created by Jinwoo Kim on 4/16/24.
+//  Created by Jinwoo Kim on 4/18/24.
 //
 
-#import "MediaContentCollectionViewController.hpp"
+#import "MonogramCollectionViewController.h"
 #import <TVUIKit/TVUIKit.h>
 #import <objc/message.h>
 #import <objc/runtime.h>
@@ -14,11 +14,11 @@
 #import "MediaContentCollectionViewCell.h"
 
 __attribute__((objc_direct_members))
-@interface MediaContentCollectionViewController ()
+@interface MonogramCollectionViewController ()
 @property (retain, readonly, nonatomic) UICollectionViewCellRegistration *cellRegistration;
 @end
 
-@implementation MediaContentCollectionViewController
+@implementation MonogramCollectionViewController
 @synthesize cellRegistration = _cellRegistration;
 
 - (instancetype)init {
@@ -49,17 +49,23 @@ __attribute__((objc_direct_members))
     if (auto cellRegistration = _cellRegistration) return cellRegistration;
     
     UICollectionViewCellRegistration *cellRegistration = [UICollectionViewCellRegistration registrationWithCellClass:UICollectionViewCell.class configurationHandler:^(__kindof UICollectionViewCell * _Nonnull cell, NSIndexPath * _Nonnull indexPath, id  _Nonnull item) {
-        TVMediaItemContentConfiguration *contentConfiguration = [TVMediaItemContentConfiguration wideCellConfiguration];
-//        TVMediaItemContentConfiguration *contentConfiguration = ((id (*)(Class, SEL))objc_msgSend)(TVMediaItemContentConfiguration.class, sel_registerName("_squareCellConfiguration"));
+        TVMonogramContentConfiguration *contentConfiguration = [TVMonogramContentConfiguration cellConfiguration];
         contentConfiguration.text = @"Hello!";
         contentConfiguration.secondaryText = @"Hello World";
-        contentConfiguration.badgeText = @"123";
-        UIView *overlayView = [UIView new];
-        overlayView.backgroundColor = [UIColor.systemRedColor colorWithAlphaComponent:0.5f];
-        contentConfiguration.overlayView = overlayView;
-        [overlayView release];
-//        contentConfiguration.image = [UIImage systemImageNamed:@"pencil.circle.fill"];
-        contentConfiguration.playbackProgress = 0.6f;
+        
+        NSPersonNameComponents *personNameComponents = [NSPersonNameComponents new];
+        personNameComponents.givenName = @"Johnathan";
+        personNameComponents.middleName = @"Maple";
+        personNameComponents.namePrefix = @"Mr.";
+        personNameComponents.nameSuffix = @"Jr.";
+        personNameComponents.familyName = @"Appleseed";
+//        personNameComponents.givenName = @"김";
+//        personNameComponents.familyName = @"진우";
+        
+        contentConfiguration.personNameComponents = personNameComponents;
+        [personNameComponents release];
+        
+//        contentConfiguration.image = [UIImage systemImageNamed:@"hand.raised.fill"];
         cell.contentConfiguration = contentConfiguration;
         
         cell.configurationUpdateHandler = ^(__kindof UICollectionViewCell * _Nonnull cell, UICellConfigurationState * _Nonnull state) {

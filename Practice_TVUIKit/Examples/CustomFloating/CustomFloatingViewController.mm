@@ -39,7 +39,7 @@
 __attribute__((objc_direct_members))
 @interface CustomFloatingDemoView : UIView
 @property (retain, readonly, nonatomic) __kindof UIView *floatingContentView;
-@property (retain, readonly, nonatomic) UILabel *label;
+@property (retain, readonly, nonatomic) __kindof UILabel *label;
 @end
 
 @implementation CustomFloatingDemoView
@@ -126,8 +126,10 @@ __attribute__((objc_direct_members))
     
     if ([context.nextFocusedView isEqual:self]) {
         ((void (*)(id, SEL, NSUInteger, BOOL))objc_msgSend)(self.floatingContentView, sel_registerName("setControlState:animated:"), 8, YES);
+        ((void (*)(id, SEL, NSUInteger))objc_msgSend)(self.label, sel_registerName("updateAppearanceForLockupViewState:"), 8);
     } else {
         ((void (*)(id, SEL, NSUInteger, BOOL))objc_msgSend)(self.floatingContentView, sel_registerName("setControlState:animated:"), 0, YES);
+        ((void (*)(id, SEL, NSUInteger))objc_msgSend)(self.label, sel_registerName("updateAppearanceForLockupViewState:"), 0);
     }
 }
 
@@ -142,9 +144,8 @@ __attribute__((objc_direct_members))
 - (UILabel *)label {
     if (auto label = _label) return label;
     
-    UILabel *label = [[UILabel alloc] initWithFrame:self.bounds];
+    UILabel *label = [[objc_lookUpClass("_TVLockupLabel") alloc] initWithFrame:self.bounds];
     label.text = @"Custom Floating View!";
-    label.textColor = UIColor.systemPinkColor;
     label.textAlignment = NSTextAlignmentCenter;
     
     _label = [label retain];
@@ -178,10 +179,19 @@ __attribute__((objc_direct_members))
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem primaryAction:action];
     CustomFloatingDemoView *demoView = [[CustomFloatingDemoView alloc] init];
+    
+    __kindof UIView *progressView = [objc_lookUpClass("_TVMediaItemImageOverlayProgressView") new];
+    progressView.tintColor = UIColor.systemGreenColor;
+    ((void (*)(id, SEL, float))objc_msgSend)(progressView, sel_registerName("setPlaybackProgress:"), 0.6f);
+    
+    UIProgressView *progressView_2 = [UIProgressView new];
+    progressView_2.progressViewStyle = UIProgressViewStyleDefault;
+    progressView_2.progress = 0.6f;
+    
     //
     
-    UIStackView *stackView = [[UIStackView alloc] initWithArrangedSubviews:@[label, button, demoView]];
-    stackView.spacing = 8.f;
+    UIStackView *stackView = [[UIStackView alloc] initWithArrangedSubviews:@[label, button, demoView, progressView, progressView_2]];
+    stackView.spacing = 30.f;
     stackView.axis = UILayoutConstraintAxisVertical;
     stackView.distribution = UIStackViewDistributionFill;
     stackView.alignment = UIStackViewAlignmentFill;
@@ -199,6 +209,8 @@ __attribute__((objc_direct_members))
     
     [stackView release];
     [demoView release];
+    [progressView release];
+    [progressView_2 release];
 }
 
 

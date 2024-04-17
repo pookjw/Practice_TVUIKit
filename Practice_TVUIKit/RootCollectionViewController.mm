@@ -10,6 +10,7 @@
 #import "FloatingCollectionViewController.hpp"
 #import "MediaContentCollectionViewController.hpp"
 #import "CustomFloatingViewController.hpp"
+#import "MonogramCollectionViewController.h"
 #import <objc/message.h>
 #import <objc/runtime.h>
 #import <TVUIKit/TVUIKit.h>
@@ -73,6 +74,7 @@ __attribute__((objc_direct_members))
 
 - (NSArray<Class> *)viewControllerClasses {
     return @[
+        MonogramCollectionViewController.class,
         CustomFloatingViewController.class,
         MediaContentCollectionViewController.class,
         FloatingCollectionViewController.class,
