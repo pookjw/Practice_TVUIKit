@@ -11,6 +11,7 @@
 #import "MediaContentCollectionViewController.hpp"
 #import "CustomFloatingViewController.hpp"
 #import "MonogramCollectionViewController.h"
+#import "TextViewController.h"
 #import <objc/message.h>
 #import <objc/runtime.h>
 #import <TVUIKit/TVUIKit.h>
@@ -74,6 +75,8 @@ __attribute__((objc_direct_members))
 
 - (NSArray<Class> *)viewControllerClasses {
     return @[
+        TextViewController.class,
+        TVDigitEntryViewController.class,
         MonogramCollectionViewController.class,
         CustomFloatingViewController.class,
         MediaContentCollectionViewController.class,
@@ -97,6 +100,14 @@ __attribute__((objc_direct_members))
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     Class _class = self.viewControllerClasses[indexPath.item];
     __kindof UIViewController *viewController = [_class new];
+    
+    if ([viewController isKindOfClass:TVDigitEntryViewController.class]) {
+        TVDigitEntryViewController *digitEntryViewController = viewController;
+        digitEntryViewController.entryCompletionHandler = ^(NSString * _Nonnull entry) {
+            NSLog(@"%@", entry);
+        };
+    }
+    
     [self.navigationController pushViewController:viewController animated:YES];
     [viewController release];
 }

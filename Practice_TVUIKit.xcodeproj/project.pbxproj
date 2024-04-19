@@ -12,6 +12,7 @@
 		4F33662B2BCF914000323C8A /* MediaContentCollectionViewLayout.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F3366272BCF914000323C8A /* MediaContentCollectionViewLayout.mm */; };
 		4F33662E2BCF973700323C8A /* CustomFloatingViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F33662D2BCF973700323C8A /* CustomFloatingViewController.mm */; };
 		4F33667D2BD02CBC00323C8A /* MonogramCollectionViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F33667C2BD02CBC00323C8A /* MonogramCollectionViewController.mm */; };
+		4F7329872BD17C6C00E8915A /* TextViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F7329862BD17C6C00E8915A /* TextViewController.mm */; };
 		4FA0E9872BCF702F009EADD5 /* FloatingContentCollectionViewLayout.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4FA0E9862BCF702F009EADD5 /* FloatingContentCollectionViewLayout.mm */; };
 		4FBE356A2BCC1DE200EC0C06 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4FBE35692BCC1DE200EC0C06 /* AppDelegate.mm */; };
 		4FBE35722BCC1DE300EC0C06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FBE35712BCC1DE300EC0C06 /* Assets.xcassets */; };
@@ -40,6 +41,8 @@
 		4F33662D2BCF973700323C8A /* CustomFloatingViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CustomFloatingViewController.mm; sourceTree = "<group>"; };
 		4F33667B2BD02CBC00323C8A /* MonogramCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MonogramCollectionViewController.h; sourceTree = "<group>"; };
 		4F33667C2BD02CBC00323C8A /* MonogramCollectionViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MonogramCollectionViewController.mm; sourceTree = "<group>"; };
+		4F7329852BD17C6C00E8915A /* TextViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextViewController.h; sourceTree = "<group>"; };
+		4F7329862BD17C6C00E8915A /* TextViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TextViewController.mm; sourceTree = "<group>"; };
 		4FA0E9852BCF702F009EADD5 /* FloatingContentCollectionViewLayout.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FloatingContentCollectionViewLayout.hpp; sourceTree = "<group>"; };
 		4FA0E9862BCF702F009EADD5 /* FloatingContentCollectionViewLayout.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = FloatingContentCollectionViewLayout.mm; sourceTree = "<group>"; };
 		4FBE35652BCC1DE200EC0C06 /* Practice_TVUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Practice_TVUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +114,15 @@
 			path = Monogram;
 			sourceTree = "<group>";
 		};
+		4F7329842BD1774500E8915A /* TextView */ = {
+			isa = PBXGroup;
+			children = (
+				4F7329852BD17C6C00E8915A /* TextViewController.h */,
+				4F7329862BD17C6C00E8915A /* TextViewController.mm */,
+			);
+			path = TextView;
+			sourceTree = "<group>";
+		};
 		4FBE355C2BCC1DE200EC0C06 = {
 			isa = PBXGroup;
 			children = (
@@ -140,8 +152,8 @@
 				4FF086A22BCED540001BD1D3 /* Storyboard.storyboard */,
 				4FF086972BCE38FE001BD1D3 /* ImageContentView.hpp */,
 				4FF086982BCE38FE001BD1D3 /* ImageContentView.mm */,
-				4FBE358A2BCC219D00EC0C06 /* Examples */,
 				4FBE35712BCC1DE300EC0C06 /* Assets.xcassets */,
+				4FBE358A2BCC219D00EC0C06 /* Examples */,
 				4FBE35732BCC1DE300EC0C06 /* LaunchScreen.storyboard */,
 				4FBE35762BCC1DE300EC0C06 /* main.mm */,
 			);
@@ -161,6 +173,7 @@
 		4FBE358A2BCC219D00EC0C06 /* Examples */ = {
 			isa = PBXGroup;
 			children = (
+				4F7329842BD1774500E8915A /* TextView */,
 				4FF0869D2BCEAC21001BD1D3 /* FullScreenLayout */,
 				4FF0869E2BCEAC2B001BD1D3 /* Floating */,
 				4F3366282BCF914000323C8A /* MediaContent */,
@@ -262,6 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F7329872BD17C6C00E8915A /* TextViewController.mm in Sources */,
 				4F33667D2BD02CBC00323C8A /* MonogramCollectionViewController.mm in Sources */,
 				4F33662A2BCF914000323C8A /* MediaContentCollectionViewController.mm in Sources */,
 				4F3366292BCF914000323C8A /* MediaContentCollectionViewCell.m in Sources */,
