@@ -10,14 +10,14 @@
 #import <objc/message.h>
 #import <objc/runtime.h>
 
-namespace pt__UIFloatingContentView {
-    namespace setContentMotionRotation_translation {
-        void (*original)(id, SEL, CGPoint, CGPoint);
-        void custom(id self, SEL _cmd, CGPoint x2, CGPoint x3) {
-            original(self, _cmd, x2, x3);
-        }
-    }
-}
+//namespace pt__UIFloatingContentView {
+//    namespace setContentMotionRotation_translation {
+//        void (*original)(id, SEL, CGPoint, CGPoint);
+//        void custom(id self, SEL _cmd, CGPoint x2, CGPoint x3) {
+//            original(self, _cmd, x2, x3);
+//        }
+//    }
+//}
 
 // TVLockupView 직접 커스텀 해보기
 
@@ -35,11 +35,11 @@ __attribute__((objc_direct_members))
 @synthesize posterView = _posterView;
 @synthesize captionButtonView = _captionButtonView;
 
-+ (void)load {
-    Method method = class_getInstanceMethod(objc_lookUpClass("_UIFloatingContentView"), sel_registerName("setContentMotionRotation:translation:"));
-    pt__UIFloatingContentView::setContentMotionRotation_translation::original = (void (*)(id, SEL, CGPoint, CGPoint))method_getImplementation(method);
-    method_setImplementation(method, (IMP)pt__UIFloatingContentView::setContentMotionRotation_translation::custom);
-}
+//+ (void)load {
+//    Method method = class_getInstanceMethod(objc_lookUpClass("_UIFloatingContentView"), sel_registerName("setContentMotionRotation:translation:"));
+//    pt__UIFloatingContentView::setContentMotionRotation_translation::original = (void (*)(id, SEL, CGPoint, CGPoint))method_getImplementation(method);
+//    method_setImplementation(method, (IMP)pt__UIFloatingContentView::setContentMotionRotation_translation::custom);
+//}
 
 - (void)dealloc {
     [_stackView release];

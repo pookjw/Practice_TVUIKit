@@ -12,10 +12,8 @@
 int main(int argc, char * argv[]) {
     NSAutoreleasePool *pool = [NSAutoreleasePool new];
     
-    /*
-     setSystemInputViewControllerDelegate:
-     */
-    NSLog(@"%@", [NSObject _fd__protocolDescriptionForProtocol:NSProtocolFromString(@"UISystemInputViewControllerDelegate")]);
+    NSLog(@"%@", [NSObject _fd__protocolDescriptionForProtocol:NSProtocolFromString(@"TVCarouselViewDataSource")]);
+    NSLog(@"%@", [NSObject _fd__protocolDescriptionForProtocol:NSProtocolFromString(@"TVCarouselViewDelegate")]);
     
     int result = UIApplicationMain(argc, argv, nil, NSStringFromClass(AppDelegate.class));
     [pool release];

@@ -14,6 +14,7 @@
 #import "TextFieldViewController.h"
 #import "TextViewController.h"
 #import "LockupsViewController.h"
+#import "CarouselViewController.h"
 #import <objc/message.h>
 #import <objc/runtime.h>
 #import <TVUIKit/TVUIKit.h>
@@ -78,6 +79,7 @@ __attribute__((objc_direct_members))
 
 - (NSArray<Class> *)viewControllerClasses {
     return @[
+        CarouselViewController.class,
         LockupsViewController.class,
         TextViewController.class,
         TextFieldViewController.class,
