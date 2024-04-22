@@ -40,10 +40,6 @@ OBJC_EXPORT id objc_msgSendSuper2(void);
     return YES;
 }
 
-- (BOOL)canBecomeFocused {
-    return YES;
-}
-
 - (BOOL)becomeFirstResponder {
     BOOL result = [super becomeFirstResponder];
     
