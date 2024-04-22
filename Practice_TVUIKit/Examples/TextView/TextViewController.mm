@@ -25,7 +25,6 @@ OBJC_EXPORT id objc_msgSendSuper2(void);
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         ((void (*)(id, SEL, BOOL))objc_msgSend)(self, sel_registerName("setEditable:"), YES);
-        self.selectable = YES;
     }
     
     return self;
@@ -50,19 +49,20 @@ OBJC_EXPORT id objc_msgSendSuper2(void);
         
         self._et_systemInputViewController = systemInputViewController;
         
-        UIButton *doneButton = ((id (*)(id, SEL))objc_msgSend)(systemInputViewController, sel_registerName("doneButton"));
-        
-        [doneButton addTarget:self action:@selector(_doneButtonDidTrigger:) forControlEvents:UIControlEventPrimaryActionTriggered];
-        
         [viewController presentViewController:systemInputViewController animated:YES completion:nil];
     }
     
     return result;
 }
 
-- (void)_doneButtonDidTrigger:(UIButton *)sender {
-    [self._et_systemInputViewController dismissViewControllerAnimated:YES completion:nil];
-    [self resignFirstResponder];
+- (BOOL)resignFirstResponder {
+    BOOL result = [super resignFirstResponder];
+    
+    if (result) {
+        [self._et_systemInputViewController dismissViewControllerAnimated:YES completion:nil];
+    }
+    
+    return result;
 }
 
 - (UILabel *)_et_placeholderLabel {
