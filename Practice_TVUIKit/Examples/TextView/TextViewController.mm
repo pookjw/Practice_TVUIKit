@@ -48,7 +48,6 @@ OBJC_EXPORT id objc_msgSendSuper2(void);
         __kindof UIViewController *systemInputViewController = ((id (*)(Class, SEL, id, id, id))objc_msgSend)(objc_lookUpClass("UISystemInputViewController"), sel_registerName("systemInputViewControllerForResponder:editorView:containingResponder:"), self, self._et_placeholderLabel, viewController);
         
         self._et_systemInputViewController = systemInputViewController;
-        
         [viewController presentViewController:systemInputViewController animated:YES completion:nil];
     }
     
@@ -56,13 +55,8 @@ OBJC_EXPORT id objc_msgSendSuper2(void);
 }
 
 - (BOOL)resignFirstResponder {
-    BOOL result = [super resignFirstResponder];
-    
-    if (result) {
-        [self._et_systemInputViewController dismissViewControllerAnimated:YES completion:nil];
-    }
-    
-    return result;
+    [self._et_systemInputViewController dismissViewControllerAnimated:YES completion:nil];
+    return [super resignFirstResponder];
 }
 
 - (UILabel *)_et_placeholderLabel {
