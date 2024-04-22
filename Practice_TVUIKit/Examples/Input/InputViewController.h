@@ -1,5 +1,5 @@
 //
-//  TextViewController.h
+//  InputViewController.h
 //  Practice_TVUIKit
 //
 //  Created by Jinwoo Kim on 4/22/24.
@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TextViewController : UIViewController
+@interface InputViewController : UIViewController
 
 @end
 

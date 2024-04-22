@@ -11,6 +11,8 @@
 #import "MediaContentCollectionViewController.hpp"
 #import "CustomFloatingViewController.hpp"
 #import "MonogramCollectionViewController.h"
+#import "InputViewController.h"
+#import "TextFieldViewController.h"
 #import "TextViewController.h"
 #import <objc/message.h>
 #import <objc/runtime.h>
@@ -76,6 +78,8 @@ __attribute__((objc_direct_members))
 - (NSArray<Class> *)viewControllerClasses {
     return @[
         TextViewController.class,
+        InputViewController.class,
+        TextFieldViewController.class,
         TVDigitEntryViewController.class,
         MonogramCollectionViewController.class,
         CustomFloatingViewController.class,
