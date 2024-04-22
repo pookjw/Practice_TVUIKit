@@ -113,6 +113,11 @@ __attribute__((objc_direct_members))
     ((void (*)(id, SEL, NSUInteger, BOOL))objc_msgSend)(self.floatingContentView, sel_registerName("setControlState:animated:"), self.focused ? 8 : 0, YES);
 }
 
+- (void)pressesCancelled:(NSSet<UIPress *> *)presses withEvent:(UIPressesEvent *)event {
+    [super pressesCancelled:presses withEvent:event];
+    ((void (*)(id, SEL, NSUInteger, BOOL))objc_msgSend)(self.floatingContentView, sel_registerName("setControlState:animated:"), self.focused ? 8 : 0, YES);
+}
+
 - (CGSize)intrinsicContentSize {
     return CGSizeMake(600.f, 300.f);
 }
@@ -137,6 +142,11 @@ __attribute__((objc_direct_members))
     if (auto floatingContentView = _floatingContentView) return floatingContentView;
     
     __kindof UIView *floatingContentView = ((id (*)(id, SEL, CGRect))objc_msgSend)([objc_lookUpClass("_UIFloatingContentView") alloc], @selector(initWithFrame:), self.bounds);
+    
+//    ((void (*)(id, SEL, BOOL))objc_msgSend)(floatingContentView, sel_registerName("setFocusedSizeIncrease:"), YES);
+    ((void (*)(id, SEL, CGPoint))objc_msgSend)(floatingContentView, sel_registerName("setFocusScaleAnchorPoint:"), CGPointMake(0.5f, 1.f));
+    ((void (*)(id, SEL, CGPoint, CGPoint))objc_msgSend)(floatingContentView, sel_registerName("setContentMotionRotation:translation:"), CGPointMake(M_PI, M_PI), CGPointMake(8.f, 0.f));
+    
     _floatingContentView = [floatingContentView retain];
     return [floatingContentView autorelease];
 }

@@ -13,12 +13,15 @@
 #import "MonogramCollectionViewController.h"
 #import "TextFieldViewController.h"
 #import "TextViewController.h"
+#import "LockupsViewController.h"
 #import <objc/message.h>
 #import <objc/runtime.h>
 #import <TVUIKit/TVUIKit.h>
 
 // Menu 버튼 먹어버리는?
 // Split View
+// TVServices
+// _TVCarouselView
 
 // https://developer.apple.com/documentation/tvservices/building-a-full-screen-top-shelf-extension?language=objc
 
@@ -48,7 +51,6 @@ __attribute__((objc_direct_members))
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self cellRegistration];
-//    self.collectionView.focu;
 }
 
 - (UICollectionViewCellRegistration *)cellRegistration {
@@ -76,6 +78,7 @@ __attribute__((objc_direct_members))
 
 - (NSArray<Class> *)viewControllerClasses {
     return @[
+        LockupsViewController.class,
         TextViewController.class,
         TextFieldViewController.class,
         TVDigitEntryViewController.class,

@@ -129,7 +129,7 @@ OBJC_EXPORT id objc_msgSendSuper2(void);
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    EditableTextView *textView = [EditableTextView new];
+    EditableTextView *textView = [objc_lookUpClass("_TVFocusableTextView") new];
     
     UIAction *primaryAction = [UIAction actionWithTitle:@"Edit" image:[UIImage systemImageNamed:@"pencil.circle"] identifier:nil handler:^(__kindof UIAction * _Nonnull action) {
         [textView becomeFirstResponder];
