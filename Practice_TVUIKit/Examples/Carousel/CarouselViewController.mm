@@ -90,6 +90,9 @@ __attribute__((objc_direct_members))
     if (auto cellRegistration = _cellRegistration) return cellRegistration;
     
     UICollectionViewCellRegistration *cellRegistration = [UICollectionViewCellRegistration registrationWithCellClass:[UICollectionViewListCell class] configurationHandler:^(__kindof UICollectionViewListCell * _Nonnull cell, NSIndexPath * _Nonnull indexPath, id  _Nonnull item) {
+        
+        // Focus가 안 되어야 Auto Scroll이 동작하는 내부 원리
+        // -[_TVCarouselView _updateAutoScrollTimer]
         ((void (*)(id, SEL, BOOL))objc_msgSend)(cell, sel_registerName("_setFocusInteractionEnabled:"), NO);
         
         UIListContentConfiguration *contentConfiguration = [cell defaultContentConfiguration];
