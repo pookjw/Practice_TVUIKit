@@ -31,7 +31,6 @@
 		4FF086992BCE38FE001BD1D3 /* ImageContentView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4FF086982BCE38FE001BD1D3 /* ImageContentView.mm */; };
 		4FF0869C2BCE3D74001BD1D3 /* FullScreenLayoutCollectionViewCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4FF0869B2BCE3D74001BD1D3 /* FullScreenLayoutCollectionViewCell.mm */; };
 		4FF086A12BCEAC40001BD1D3 /* FloatingCollectionViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4FF086A02BCEAC40001BD1D3 /* FloatingCollectionViewController.mm */; };
-		4FF086A32BCED540001BD1D3 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FF086A22BCED540001BD1D3 /* Storyboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,7 +77,6 @@
 		4FF0869B2BCE3D74001BD1D3 /* FullScreenLayoutCollectionViewCell.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = FullScreenLayoutCollectionViewCell.mm; sourceTree = "<group>"; };
 		4FF0869F2BCEAC40001BD1D3 /* FloatingCollectionViewController.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FloatingCollectionViewController.hpp; sourceTree = "<group>"; };
 		4FF086A02BCEAC40001BD1D3 /* FloatingCollectionViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = FloatingCollectionViewController.mm; sourceTree = "<group>"; };
-		4FF086A22BCED540001BD1D3 /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,7 +186,6 @@
 				4FBE35852BCC1F2C00EC0C06 /* SceneDelegate.mm */,
 				4FBE35872BCC1FD300EC0C06 /* RootCollectionViewController.hpp */,
 				4FBE35882BCC1FD300EC0C06 /* RootCollectionViewController.mm */,
-				4FF086A22BCED540001BD1D3 /* Storyboard.storyboard */,
 				4FF086972BCE38FE001BD1D3 /* ImageContentView.hpp */,
 				4FF086982BCE38FE001BD1D3 /* ImageContentView.mm */,
 				4F4D1C832BD676FF000D4E40 /* NSObject+Foundation_IvarDescription.h */,
@@ -308,7 +305,6 @@
 			files = (
 				4FBE35722BCC1DE300EC0C06 /* Assets.xcassets in Resources */,
 				4FBE35752BCC1DE300EC0C06 /* Base in Resources */,
-				4FF086A32BCED540001BD1D3 /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
